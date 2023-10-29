@@ -1,3 +1,3 @@
-module github.com/gowizzard/tfusion
+module github.com/gowizzard/trigsnfuncs
 
 go 1.21.0

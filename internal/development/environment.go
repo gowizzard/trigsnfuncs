@@ -7,7 +7,7 @@ package development
 
 import (
 	"encoding/json"
-	"github.com/gowizzard/tfusion/files"
+	"github.com/gowizzard/trigsnfuncs/files"
 	"strings"
 	"syscall"
 )

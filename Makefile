@@ -1,5 +1,5 @@
 # Here you can reformat, check or build the binary
-BINARY_NAME=tfusion
+BINARY_NAME=trigsnfuncs
 APP_PATH=cmd/${BINARY_NAME}/main.go
 
 fmt:
