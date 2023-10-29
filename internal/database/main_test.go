@@ -5,8 +5,8 @@ package database_test
 
 import (
 	"context"
-	"github.com/gowizzard/tfusion/internal/database"
-	"github.com/gowizzard/tfusion/internal/development"
+	"github.com/gowizzard/trigsnfuncs/internal/database"
+	"github.com/gowizzard/trigsnfuncs/internal/development"
 	"os"
 	"testing"
 )

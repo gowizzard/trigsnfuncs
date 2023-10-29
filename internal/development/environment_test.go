@@ -7,8 +7,8 @@ package development_test
 
 import (
 	"encoding/json"
-	"github.com/gowizzard/tfusion/files"
-	"github.com/gowizzard/tfusion/internal/development"
+	"github.com/gowizzard/trigsnfuncs/files"
+	"github.com/gowizzard/trigsnfuncs/internal/development"
 	"strings"
 	"syscall"
 	"testing"

@@ -1,4 +1,4 @@
-# Dockerfile for the tfusion application. This file is used to build the production-ready image of the application.
+# Dockerfile for the trigsnfuncs application. This file is used to build the production-ready image of the application.
 # The image is based on the Alpine Linux distribution, which is known for its small size and security.
 
 ########################################################################################################################
@@ -24,4 +24,4 @@ USER application
 ENV TZ=Europe/Berlin
 WORKDIR /app
 COPY --from=build /tmp/src .
-ENTRYPOINT ["/app/tfusion"]
+ENTRYPOINT ["/app/trigsnfuncs"]
