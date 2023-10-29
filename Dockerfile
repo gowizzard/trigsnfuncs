@@ -23,5 +23,5 @@ RUN apk add --no-cache tzdata && \
 USER application
 ENV TZ=Europe/Berlin
 WORKDIR /app
-COPY --from=assets /tmp/src .
+COPY --from=build /tmp/src .
 ENTRYPOINT ["/app/tfusion"]
