@@ -32,11 +32,13 @@ func TestMain(m *testing.M) {
 		panic(err)
 	}
 
-	m.Run()
+	defer func(c *database.Client) {
+		err := c.Close()
+		if err != nil {
+			panic(err)
+		}
+	}(c)
 
-	err = c.Close()
-	if err != nil {
-		panic(err)
-	}
+	m.Run()
 
 }
