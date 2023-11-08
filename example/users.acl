@@ -1,0 +1,4 @@
+user default off
+user developer on >123456 ~* allcommands
+user ping on >pong nocommands +ping
+user import on >triggersNfunctions nocommands +tfunction|load
