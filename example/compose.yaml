@@ -1,0 +1,33 @@
+# Docker compose file for an example redis stack server
+services:
+    redis-stack-server:
+        container_name: redis-stack-server
+        volumes:
+            - /tmp/docker/redis-stack-server/data/redis:/data/redis
+            - ./redis-stack.conf:/etc/configuration/redis-stack.conf
+            - ./users.acl:/etc/users.acl
+        environment:
+            - REDIS_USERNAME=ping
+            - REDIS_PASSWORD=pong
+        ports:
+            - "6379:6379"
+        restart: always
+        image: redis/redis-stack-server:latest
+        command: [ "redis-server", "etc/configuration/redis-stack.conf" ]
+        healthcheck:
+            test: "sh -c 'redis-cli --user $$REDIS_USERNAME --pass $$REDIS_PASSWORD --no-auth-warning ping'"
+            timeout: 30s
+            retries: 5
+            start_period: 10s
+    trigsnfuncs:
+        container_name: trigsnfuncs
+        depends_on:
+            redis-stack-server:
+                condition: service_healthy
+        environment:
+            - REDIS_ADDRESS=redis-stack-server:6379
+            - REDIS_USERNAME=import
+            - REDIS_PASSWORD=triggersNfunctions
+        image: gowizzard/trigsnfuncs:latest
+        volumes:
+            - ./scripts:/tmp/docker/redis/triggers-functions
