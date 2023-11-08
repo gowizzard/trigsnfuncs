@@ -16,12 +16,12 @@ func TestBytes(t *testing.T) {
 		expected string
 	}{
 		{
-			name:     "function.js",
+			name:     "add_last_updated.js",
 			v:        []byte("#!js name=play api_version=1.0\n\nfunction ping(client, data) {\n    return client.call('ping');\n}\n\nredis.registerFunction('ping', ping);"),
 			expected: "\"#!js name=play api_version=1.0\\n\\nfunction ping(client, data) {\\n    return client.call('ping');\\n}\\n\\nredis.registerFunction('ping', ping);\"",
 		},
 		{
-			name:     "trigger.js",
+			name:     "ping.js",
 			v:        []byte("#!js name=trigger api_version=1.0\n\nfunction setLastUpdate(client, data) {\n    if(data.event == \"hset\") {\n        const time = new Date();\n        client.call(\"hset\", data.key, \"last_update\", time.toISOString());\n    }\n}\n\nredis.registerKeySpaceTrigger(\"addLastUpdated\", \"shop:\", setLastUpdate);"),
 			expected: "\"#!js name=trigger api_version=1.0\\n\\nfunction setLastUpdate(client, data) {\\n    if(data.event == \\\"hset\\\") {\\n        const time = new Date();\\n        client.call(\\\"hset\\\", data.key, \\\"last_update\\\", time.toISOString());\\n    }\\n}\\n\\nredis.registerKeySpaceTrigger(\\\"addLastUpdated\\\", \\\"shop:\\\", setLastUpdate);\"",
 		},

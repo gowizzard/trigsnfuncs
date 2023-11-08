@@ -15,11 +15,11 @@ func TestDirectory(t *testing.T) {
 		content string
 	}{
 		{
-			name:    "trigger.js",
+			name:    "ping.js",
 			content: "#!js name=trigger api_version=1.0\n\nfunction setLastUpdate(client, data) {\n    if(data.event == \"hset\") {\n        const time = new Date();\n        client.call(\"hset\", data.key, \"last_update\", time.toISOString());\n    }\n}\n\nredis.registerKeySpaceTrigger(\"addLastUpdated\", \"shop:\", setLastUpdate);",
 		},
 		{
-			name:    "function.js",
+			name:    "add_last_updated.js",
 			content: "#!js name=play api_version=1.0\n\nfunction ping(client, data) {\n    return client.call('ping');\n}\n\nredis.registerFunction('ping', ping);",
 		},
 	}
