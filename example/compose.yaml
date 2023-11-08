@@ -30,4 +30,4 @@ services:
             - REDIS_PASSWORD=triggersNfunctions
         image: gowizzard/trigsnfuncs:latest
         volumes:
-            - ./scripts:/tmp/docker/redis/triggers-functions
+            - ./scripts:/scripts
